@@ -9,7 +9,7 @@ export default function SearchItem({ pokemon }) {
           alt={`${pokemon} icon`}
         />
     */}
-      <p className="font-medium text-sm">{pokemon.name}</p>
+      <p className="font-medium text-sm truncate">{pokemon.name}</p>
       <p className="text-gray-500 text-sm">test</p>
     </span>
   );

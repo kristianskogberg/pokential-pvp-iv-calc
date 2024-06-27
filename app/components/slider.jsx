@@ -53,7 +53,7 @@ export default function Slider({ label, id, setter, value }) {
         min={MIN_IV}
         step={1}
         max={MAX_IV}
-        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+        className="w-full h-2 bg-gray-200 rounded-lg  cursor-pointer accent-slate-600 "
         onChange={handleIVChange}
       />
     </div>

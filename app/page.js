@@ -33,7 +33,7 @@ export default function Home() {
           setter="setStaminaIV"
           value="staminaIV"
         />
-        <div className="flex flex-row justify-center gap-8">
+        <div className="flex flex-row justify-center gap-8 flex-wrap">
           <AdvancedSettings />
           <Button />
         </div>

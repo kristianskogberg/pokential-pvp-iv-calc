@@ -12,24 +12,26 @@ export default function SelectedPokemonCard() {
   }
 
   return (
-    <div className="flex flex-row w-full items-center justify-center gap-10">
+    <div className="flex flex-row flex-wrap w-full items-center justify-center px-2">
       <Image
         src={selectedPokemon.imageUrl}
         alt={selectedPokemon.name}
         width={200}
         height={200}
       />
-      <div>
+      <div className="py-4 sx:pl-6 flex flex-col">
         <span>
           <h5 className="text-sm font-medium text-gray-400">
             #{selectedPokemon.id}
           </h5>
-          <h2>{selectedPokemon.name}</h2>
+          <h2 className="text-2xl sx:text-3xl font-bold py-2 truncate">
+            {selectedPokemon.name}
+          </h2>
         </span>
-        <span className="flex flex-row gap-4 text-sm font-medium text-gray-400 uppercase">
-          {selectedPokemon.type.map((type) => {
-            return <p key={type}>{type}</p>;
-          })}
+        <span className="flex flex-row flex-wrap gap-4 text-sm font-medium text-gray-400 uppercase">
+          {selectedPokemon.type.map((type) => (
+            <p key={type}>{type}</p>
+          ))}
         </span>
       </div>
     </div>
