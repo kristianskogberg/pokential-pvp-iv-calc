@@ -88,10 +88,12 @@ export default function Results() {
 
   return (
     <div className="flex flex-col gap-2">
-      <LeagueSelector />
+      <div className="sticky top-0 bg-white">
+        <LeagueSelector />
+      </div>
 
       <table className="w-full border-collapse table-auto text-left">
-        <thead className="text-xs uppercase sticky top-0 bg-white">
+        <thead className="text-xs uppercase sticky top-10 bg-white">
           <tr>
             <th className="py-2">RANK</th>
             <th>IVS</th>

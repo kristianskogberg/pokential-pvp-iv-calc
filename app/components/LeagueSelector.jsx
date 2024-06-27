@@ -11,7 +11,7 @@ export default function LeagueSelector() {
   }
 
   return (
-    <div className="flex gap-4 justify-between w-full">
+    <div className="flex gap-4 justify-between w-full ">
       <button
         onClick={() => handleClick(1500)}
         className={`flex flex-row items-center gap-2 py-2 px-4 rounded-md  font-medium ${
