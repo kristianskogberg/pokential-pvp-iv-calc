@@ -31,7 +31,7 @@ export default function Slider({ label, id, setter, value }) {
   }
 
   return (
-    <div className="relative">
+    <div className="relative px-6 sm:px-0">
       <label className="pr-2">{label}</label>
       <input
         className="w-12"

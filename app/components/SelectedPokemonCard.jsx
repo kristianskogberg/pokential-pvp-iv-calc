@@ -12,7 +12,7 @@ export default function SelectedPokemonCard() {
   }
 
   return (
-    <div className="flex flex-row flex-wrap w-full items-center justify-center px-2">
+    <div className="flex flex-col sx:flex-row w-full items-center justify-center px-2 gap-0 sx:gap-4">
       <Image
         src={selectedPokemon.imageUrl}
         alt={selectedPokemon.name}
