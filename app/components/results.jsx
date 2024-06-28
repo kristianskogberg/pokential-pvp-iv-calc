@@ -92,14 +92,14 @@ export default function Results() {
   return (
     <div className="flex flex-col gap-2">
       <span className="sticky top-0 text-xs font-medium uppercase text-gray-600 py-1 w-full flex bg-white items-center justify-center">
-        {selectedPokemon.name}
+        <span className="py-1">Results for {selectedPokemon.name}</span>
       </span>
-      <div className="sticky top-6 bg-white">
+      <div className="sticky top-[1.8rem] bg-white">
         <LeagueSelector />
       </div>
 
       <table className="w-full border-collapse table-auto text-left">
-        <thead className="text-xs uppercase sticky top-16 bg-white">
+        <thead className="text-xs uppercase sticky top-[4.3rem] bg-white">
           <tr>
             <th className="py-2">RANK</th>
             <th>IVS</th>
