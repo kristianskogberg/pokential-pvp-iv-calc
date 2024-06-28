@@ -50,7 +50,7 @@ export default function AdvancedSettings() {
         className="py-2 px-4 font-medium rounded-md border-2 border-slate-700"
         onClick={handleModal}
       >
-        Advanced Settings
+        Settings
       </button>
       {open && (
         <div className="z-50 fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
@@ -59,7 +59,7 @@ export default function AdvancedSettings() {
             className="max-w-[460px] bg-white shadow-lg  rounded-md w-full m-2 gap-4 flex flex-col"
           >
             <h2 className="text-sm font-medium text-gray-900 border-b border-gray-300 py-3 px-4">
-              Advanced Settings
+              Settings
             </h2>
             <div className="px-4">
               <IVFloorDropdown />

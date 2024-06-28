@@ -115,7 +115,8 @@ export default function Results() {
           {Object.keys(pokemonRank).length === 0 ? (
             <tr>
               <td colSpan="7" className="py-2 text-center ">
-                Your Pokemon does not qualify (check IVs and IV Floor)
+                Your Pokémon does not qualify (IV Floor too high for selected
+                IVs)
               </td>
             </tr>
           ) : (

@@ -5,24 +5,44 @@ import DropdownMenu from "./dropdown";
 
 const data = [
   {
-    label: "Wild Catch",
+    label: "Wild Catch (0)",
     value: 0,
   },
   {
-    label: "Purified",
+    label: "Purified (2)",
     value: 2,
   },
   {
-    label: "Weather Boosted",
+    label: "Weather Boosted (4)",
     value: 4,
   },
   {
-    label: "Shadow Legendary",
+    label: "Shadow Legendary (6)",
     value: 6,
   },
   {
-    label: "Raid",
+    label: "Raid / Egg / Research (10)",
     value: 10,
+  },
+  {
+    label: "Trade - Good Friend (1)",
+    value: 1,
+  },
+  {
+    label: "Trade - Great Friend (2)",
+    value: 2,
+  },
+  {
+    label: "Trade - Ultra Friend (3)",
+    value: 3,
+  },
+  {
+    label: "Trade - Best Friend (5)",
+    value: 5,
+  },
+  {
+    label: "Trade - Lucky (12)",
+    value: 12,
   },
 ];
 

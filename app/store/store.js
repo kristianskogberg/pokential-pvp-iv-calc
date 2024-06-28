@@ -17,7 +17,7 @@ const useStore = create((set) => ({
   selectedPokemonRankMasterLeague: {},
   numResults: 50,
   ivFloor: 0,
-  ivFloorName: "Wild Catch",
+  ivFloorName: "Wild Catch (0)",
   maxLevel: 50,
   activeTab: 1500,
 
