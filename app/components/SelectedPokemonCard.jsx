@@ -12,14 +12,17 @@ export default function SelectedPokemonCard() {
   }
 
   return (
-    <div className="flex flex-col sx:flex-row w-full items-center justify-center px-2 gap-0 sx:gap-4">
+    <div className="flex flex-row  w-full items-center justify-start sm:justify-center px-2 ">
       <Image
+        // make this image smaller if screen size goes smaller so that it scales
         src={selectedPokemon.imageUrl}
         alt={selectedPokemon.name}
         width={200}
         height={200}
+        className="max-w-[200px] w-full p-4"
+        layout="responsive"
       />
-      <div className="py-4 sx:pl-6 flex flex-col">
+      <div className="p-4 flex flex-col w-auto items-start justify-center">
         <span>
           <h5 className="text-sm font-medium text-gray-400">
             #{selectedPokemon.id}
@@ -28,7 +31,7 @@ export default function SelectedPokemonCard() {
             {selectedPokemon.name}
           </h2>
         </span>
-        <span className="flex flex-row flex-wrap gap-4 text-sm font-medium text-gray-400 uppercase">
+        <span className="flex flex-row  gap-4 text-sm font-medium text-gray-400 uppercase">
           {selectedPokemon.type.map((type) => (
             <p key={type}>{type}</p>
           ))}
