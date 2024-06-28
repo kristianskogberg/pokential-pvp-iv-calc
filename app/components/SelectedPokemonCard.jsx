@@ -27,13 +27,13 @@ export default function SelectedPokemonCard() {
           <h5 className="text-sm font-medium text-gray-400">
             #{selectedPokemon.id}
           </h5>
-          <h2 className="text-2xl sx:text-3xl font-bold py-2 truncate">
+          <h2 className="text-2xl sx:text-3xl font-bold py-1 sx:py-2 truncate">
             {selectedPokemon.name}
           </h2>
         </span>
         <span className="flex flex-row  gap-4 text-sm font-medium text-gray-400 uppercase">
           {selectedPokemon.type.map((type) => (
-            <p key={type}>{type}</p>
+            <p key={type}>&#x25A1;</p>
           ))}
         </span>
       </div>

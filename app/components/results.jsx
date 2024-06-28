@@ -70,7 +70,7 @@ export default function Results() {
     return limitedRanks.map((rankData, index) => (
       <tr
         key={`${rankData.rank}-${index}`}
-        className="odd:bg-white  even:bg-gray-50  "
+        className="odd:bg-white  even:bg-gray-50 border-b "
       >
         <td className="py-1">{rankData.rank}</td>
         <td>
