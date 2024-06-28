@@ -15,13 +15,19 @@ const useStore = create((set) => ({
   selectedPokemonRankGreatLeague: {},
   selectedPokemonRankUltraLeague: {},
   selectedPokemonRankMasterLeague: {},
-  numResults: 25,
+  numResults: 50,
   ivFloor: 0,
   ivFloorName: "Wild Catch",
   maxLevel: 50,
   activeTab: 1500,
 
-  setSelectedPokemon: (selectedPokemon) => set({ selectedPokemon }),
+  setSelectedPokemon: (selectedPokemon) =>
+    set({
+      selectedPokemon,
+      greatLeagueRanks: {},
+      ultraLeagueRanks: {},
+      masterLeagueRanks: {},
+    }),
   setLeague: (leagueName, league) => set({ leagueName, league }),
   setAttackIV: (attack) => set({ attackIV: attack }),
   setDefenseIV: (defense) => set({ defenseIV: defense }),

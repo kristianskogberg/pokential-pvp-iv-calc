@@ -31,16 +31,16 @@ const SearchBar = () => {
     <div className="flex z-10 flex-col justify-between border-2 rounded-lg border-slate-400 focus-within:border-slate-900">
       <form action="" className="w-full">
         <div className="relative flex items-center  h-10 rounded-lg text-gray-500  overflow-hidden 0">
+          <div className="grid place-items-center h-full w-12 text-gray-300">
+            <SearchIcon size={20} color="gray" />
+          </div>
           <input
-            className="h-full pl-3 w-full outline-none  placeholder-gray-500 text-black pr-2 "
+            className="h-full pl-0 w-full outline-none  placeholder-gray-500 text-black pr-2 "
             type="text"
             value={query}
             placeholder="Search for a Pokémon..."
             onChange={handleSearch}
           />
-          <div className="grid place-items-center h-full w-12 text-gray-300">
-            <SearchIcon size={20} color="gray" />
-          </div>
         </div>
       </form>
       <div className="relative ">

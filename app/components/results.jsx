@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useStore from "../store/store";
 import DisplayDropdown from "./DisplayDropdown";
 import LeagueSelector from "./LeagueSelector";
@@ -7,6 +7,9 @@ import DisplayMoreResults from "./DisplayMoreResults";
 
 export default function Results() {
   const numResults = useStore((state) => state.numResults);
+  const selectedPokemon = useStore((state) => state.selectedPokemon);
+  const [initialSelectedPokemon, setInitialSelectedPokemon] =
+    useState(selectedPokemon);
 
   const activeTab = useStore((state) => state.activeTab);
   const greatLeagueRanks = useStore((state) => state.greatLeagueRanks);
@@ -88,12 +91,15 @@ export default function Results() {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="sticky top-0 bg-white">
+      <span className="sticky top-0 text-xs font-medium uppercase text-gray-600 py-1 w-full flex bg-white items-center justify-center">
+        {selectedPokemon.name}
+      </span>
+      <div className="sticky top-6 bg-white">
         <LeagueSelector />
       </div>
 
       <table className="w-full border-collapse table-auto text-left">
-        <thead className="text-xs uppercase sticky top-10 bg-white">
+        <thead className="text-xs uppercase sticky top-16 bg-white">
           <tr>
             <th className="py-2">RANK</th>
             <th>IVS</th>
