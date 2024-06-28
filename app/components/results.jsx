@@ -119,7 +119,7 @@ export default function Results() {
               </td>
             </tr>
           ) : (
-            <tr className={pokemonRankClass}>
+            <tr className={pokemonRankClass + " sticky top-[6.1rem]"}>
               <td className="py-1">{pokemonRank.rank}</td>
               <td>
                 {pokemonRank.attackIV}/{pokemonRank.defenseIV}/
