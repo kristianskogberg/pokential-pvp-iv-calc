@@ -69,7 +69,7 @@ const DropdownMenu = ({
             <ul className="absolute bg-[white] max-h-[300px] rounded-lg overflow-auto top-1 shadow-xl w-full z-50 flex flex-col">
               {data.map((item, key) => (
                 <li
-                  className="cursor-pointer w-full px-4 py-2 hover:bg-gray-200"
+                  className="cursor-pointer w-full px-4 py-3 hover:bg-gray-200 border-b"
                   onClick={() => handleClick(item)}
                   key={key}
                 >

@@ -13,7 +13,7 @@ var gmRhtml = null;
 var vAtk = 0;
 var vDef = 0;
 var vHP = 0;
-var pokemonRank = null;
+var selectedPokemonRank = null;
 
 function XLcandy(xlev, shdw) {
   /* Returns calculated XL candy costs based on https://bulbapedia.bulbagarden.net/wiki/Power_Up#CP_multiplier */
@@ -328,8 +328,7 @@ export default function outputUserRanks(
   league,
   leagueName,
   ranks,
-  dec,
-  URL
+  dec
 ) {
   var T0, Tc, Ti, Tr, T1;
   if (perfTiming) {
@@ -351,9 +350,7 @@ export default function outputUserRanks(
       ", ranks" +
       ranks +
       ", dec:" +
-      dec +
-      ", URL:" +
-      URL
+      dec
   );
 
   const floor = 0;
@@ -399,7 +396,7 @@ export default function outputUserRanks(
 
   if (aIV / 1 >= floor / 1 && dIV / 1 >= floor / 1 && sIV / 1 >= floor / 1) {
     /*console.log("i:"+i+" All 3 IVs > floor("+floor+"): "+aIV[i]+", "+dIV[i]+", "+sIV[i]+", aIV.length:"+aIV.length);*/
-    [gmRhtml, vAtk, vDef, vHP, pokemonRank] = getMonRank(
+    [gmRhtml, vAtk, vDef, vHP, selectedPokemonRank] = getMonRank(
       ranks,
       keys,
       shdw,
@@ -513,207 +510,7 @@ export default function outputUserRanks(
     Tr = performance.now();
   }
 
-  /*prepare max stat html output*/
-  var maxAtkurl = encodeURI(
-    URL +
-      "?mon=" +
-      mon +
-      "&r=" +
-      limit +
-      "&cp=" +
-      league +
-      "&f=" +
-      floor +
-      "&min=" +
-      minLvl +
-      "&max=" +
-      maxLvl +
-      "&set=" +
-      ranks.maxAtk.aIV +
-      "_" +
-      ranks.maxAtk.dIV +
-      "_" +
-      ranks.maxAtk.sIV
-  );
-
-  var maxDefurl = encodeURI(
-    URL +
-      "?mon=" +
-      mon +
-      "&r=" +
-      limit +
-      "&cp=" +
-      league +
-      "&f=" +
-      floor +
-      "&min=" +
-      minLvl +
-      "&max=" +
-      maxLvl +
-      "&set=" +
-      ranks.maxDef.aIV +
-      "_" +
-      ranks.maxDef.dIV +
-      "_" +
-      ranks.maxDef.sIV
-  );
-  var maxHPurl = encodeURI(
-    URL +
-      "?mon=" +
-      mon +
-      "&r=" +
-      limit +
-      "&cp=" +
-      league +
-      "&f=" +
-      floor +
-      "&min=" +
-      minLvl +
-      "&max=" +
-      maxLvl +
-      "&set=" +
-      ranks.maxHP.aIV +
-      "_" +
-      ranks.maxHP.dIV +
-      "_" +
-      ranks.maxHP.sIV
-  );
-  var minAtkurl = encodeURI(
-    URL +
-      "?mon=" +
-      mon +
-      "&r=" +
-      limit +
-      "&cp=" +
-      league +
-      "&f=" +
-      floor +
-      "&min=" +
-      minLvl +
-      "&max=" +
-      maxLvl +
-      "&set=" +
-      ranks.minAtk.aIV +
-      "_" +
-      ranks.minAtk.dIV +
-      "_" +
-      ranks.minAtk.sIV
-  );
-  var minDefurl = encodeURI(
-    URL +
-      "?mon=" +
-      mon +
-      "&r=" +
-      limit +
-      "&cp=" +
-      league +
-      "&f=" +
-      floor +
-      "&min=" +
-      minLvl +
-      "&max=" +
-      maxLvl +
-      "&set=" +
-      ranks.minDef.aIV +
-      "_" +
-      ranks.minDef.dIV +
-      "_" +
-      ranks.minDef.sIV
-  );
-  var minHPurl = encodeURI(
-    URL +
-      "?mon=" +
-      mon +
-      "&r=" +
-      limit +
-      "&cp=" +
-      league +
-      "&f=" +
-      floor +
-      "&min=" +
-      minLvl +
-      "&max=" +
-      maxLvl +
-      "&set=" +
-      ranks.minHP.aIV +
-      "_" +
-      ranks.minHP.dIV +
-      "_" +
-      ranks.minHP.sIV
-  );
-
   var step = 1 / Math.pow(10, dec);
-
-  var ranges =
-    "<br />Atk &ge; <input type='number' step=" +
-    step +
-    " id='atkVal' min=" +
-    numOut(minAtk, dec) +
-    " max=" +
-    numOut(maxAtk, dec) +
-    " value=" +
-    mA +
-    " onchange='atkRange.value=this.value;mA=this.value;filterAdjusted();'> <a href=" +
-    minAtkurl +
-    ">" +
-    numOut(minAtk, dec) +
-    "</a><input type='range' id='atkRange' min=" +
-    numOut(minAtk, dec) +
-    " max=" +
-    numOut(maxAtk, dec) +
-    " value=" +
-    mA +
-    " onchange='atkVal.value=this.value;mA=this.value;filterAdjusted();'><a href=" +
-    maxAtkurl +
-    ">" +
-    numOut(maxAtk, dec) +
-    "</a><br>";
-  ranges +=
-    "Def &ge; <input type='number' step=" +
-    step +
-    " id='defVal' min=" +
-    numOut(minDef, dec) +
-    " max=" +
-    numOut(maxDef, dec) +
-    " value=" +
-    mD +
-    " onchange='defRange.value=this.value;mD=this.value;filterAdjusted();'> <a href=" +
-    minDefurl +
-    ">" +
-    numOut(minDef, dec) +
-    "</a><input type='range' id='defRange' min=" +
-    numOut(minDef, dec) +
-    " max=" +
-    numOut(maxDef, dec) +
-    " value=" +
-    mD +
-    " onchange='defVal.value=this.value;mD=this.value;filterAdjusted();'><a href=" +
-    maxDefurl +
-    ">" +
-    numOut(maxDef, dec) +
-    "</a><br>";
-  ranges +=
-    "HP &ge; <input type='number' step='1' min=" +
-    ranks.minHP.value +
-    " max=" +
-    ranks.maxHP.value +
-    " id='hpVal' value=" +
-    mHP +
-    " onchange='hpRange.value=this.value;mHP=this.value;filterAdjusted();'> <a href=" +
-    minHPurl +
-    ">" +
-    ranks.minHP.value +
-    "</a><input type='range' id='hpRange' min=" +
-    ranks.minHP.value +
-    " max=" +
-    ranks.maxHP.value +
-    " value=" +
-    mHP +
-    " onchange='hpVal.value=this.value;mHP=this.value;filterAdjusted();'><a href=" +
-    maxHPurl +
-    ">" +
-    ranks.maxHP.value +
-    "</a><br />";
 
   /*compute trade percentages*/
   var trades = "";
@@ -807,5 +604,5 @@ export default function outputUserRanks(
       ranks.numRanks +
       " ranks.<br>";
   }
-  return [printLimit, pokemonRank];
+  return selectedPokemonRank;
 }

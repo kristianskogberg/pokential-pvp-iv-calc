@@ -58,8 +58,8 @@ export default function Button() {
       mon
     );
     setGreatLeagueRanks(greatLeagueRanks);
-    var URL = window.location.href.split("?")[0];
-    const [printLimitt, glRanks] = outputUserRanks(
+
+    const glRanks = outputUserRanks(
       attackIV,
       defenseIV,
       staminaIV,
@@ -68,8 +68,7 @@ export default function Button() {
       1500,
       "Great League",
       greatLeagueRanks,
-      dec,
-      URL
+      dec
     );
     setSelectedPokemonRankGreatLeague(glRanks);
 
@@ -86,8 +85,8 @@ export default function Button() {
       mon
     );
     setUltraLeagueRanks(ultraLeagueRanks);
-    var URL = window.location.href.split("?")[0];
-    const [printLimit, ulRanks] = outputUserRanks(
+
+    const ulRanks = outputUserRanks(
       attackIV,
       defenseIV,
       staminaIV,
@@ -96,8 +95,7 @@ export default function Button() {
       2500,
       "Ultra League",
       ultraLeagueRanks,
-      dec,
-      URL
+      dec
     );
     setSelectedPokemonRankUltraLeague(ulRanks);
 
@@ -115,7 +113,7 @@ export default function Button() {
     );
     setMasterLeagueRanks(masterLeagueRanks);
     var URL = window.location.href.split("?")[0];
-    const [printLimittt, mlRanks] = outputUserRanks(
+    const mlRanks = outputUserRanks(
       attackIV,
       defenseIV,
       staminaIV,
@@ -124,8 +122,7 @@ export default function Button() {
       10000,
       "Master League",
       masterLeagueRanks,
-      dec,
-      URL
+      dec
     );
     setSelectedPokemonRankMasterLeague(mlRanks);
   }

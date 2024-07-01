@@ -25,23 +25,23 @@ const data = [
     value: 10,
   },
   {
-    label: "Trade - Good Friend (1)",
+    label: "Trade — Good Friend (1)",
     value: 1,
   },
   {
-    label: "Trade - Great Friend (2)",
+    label: "Trade — Great Friend (2)",
     value: 2,
   },
   {
-    label: "Trade - Ultra Friend (3)",
+    label: "Trade — Ultra Friend (3)",
     value: 3,
   },
   {
-    label: "Trade - Best Friend (5)",
+    label: "Trade — Best Friend (5)",
     value: 5,
   },
   {
-    label: "Trade - Lucky (12)",
+    label: "Trade — Lucky (12)",
     value: 12,
   },
 ];

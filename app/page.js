@@ -1,8 +1,8 @@
+"use client";
 import AdvancedSettings from "./components/AdvancedSettings";
 import LeagueDropdown from "./components/LeagueDropdown";
 import SearchBar from "./components/search/SearchBar";
 import Button from "./components/button";
-
 import Results from "./components/results";
 import Slider from "./components/slider";
 import SelectedPokemonCard from "./components/SelectedPokemonCard";
