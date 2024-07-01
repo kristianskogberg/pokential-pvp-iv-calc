@@ -53,7 +53,7 @@ export default function AdvancedSettings() {
         Settings
       </button>
       {open && (
-        <div className="z-50 fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
+        <div className="z-50 fixed top-0 left-0 w-dvw h-dvh flex justify-center items-center bg-black bg-opacity-50">
           <div
             ref={menuRef}
             className="max-w-[460px] bg-white shadow-lg  rounded-md w-full m-2 gap-4 flex flex-col"
