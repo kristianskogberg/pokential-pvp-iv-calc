@@ -9,7 +9,7 @@ import SelectedPokemonCard from "./components/SelectedPokemonCard";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-start h-full min-h-[100svh] p-3 items-center">
+    <div className="flex flex-col justify-start h-full min-h-[100dvh] p-3 items-center">
       <div className="w-full max-w-xl flex flex-col">
         <SearchBar />
         <SelectedPokemonCard />
