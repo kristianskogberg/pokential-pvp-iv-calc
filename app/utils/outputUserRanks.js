@@ -157,7 +157,7 @@ function getMonRank(
   if (perfTiming) {
     T0 = performance.now();
   }
-  console.log(
+  /* console.log(
     "gMR: received: ranks:" +
       ranks +
       ", keys[0]:" +
@@ -182,7 +182,7 @@ function getMonRank(
       maxLvl +
       ", dec:" +
       dec
-  );
+  ); */
   var html = "";
   var actualRank = 1;
   var vAtk = false,
@@ -190,7 +190,6 @@ function getMonRank(
     vHP = false;
 
   let pokemonRank = {};
-  console.log(ranks);
 
   for (var i = 0; i < ranks.numRanks && ranks[keys[i]].length; i++) {
     for (var j = 0; j < ranks[keys[i]].length; j++) {
@@ -301,8 +300,8 @@ function getMonRank(
         pokemonRank.perfection = parseFloat(
           (100 * keys[i].split(".")[0]) / maxStatProd
         ).toFixed(2);
-        pokemonRank.battleAttack = numOut(ranks[keys[i]][j].battle.A, dec);
-        pokemonRank.battleDefense = numOut(ranks[keys[i]][j].battle.D, dec);
+        pokemonRank.battleAttack = ranks[keys[i]][j].battle.A;
+        pokemonRank.battleDefense = ranks[keys[i]][j].battle.D;
         pokemonRank.battleStamina = ranks[keys[i]][j].battle.S;
 
         break; /* we found it, stop searching / leave the loop!*/
@@ -314,7 +313,7 @@ function getMonRank(
   if (perfTiming) {
     stopTiming(T0, "getMonRank");
   }
-  console.log(pokemonRank);
+  // console.log(pokemonRank);
 
   return [html, vAtk, vDef, vHP, pokemonRank];
 }
@@ -334,6 +333,7 @@ export default function outputUserRanks(
   if (perfTiming) {
     T0 = performance.now();
   }
+  /*
   console.log(
     "oUR: Received aIV:" +
       aIV +
@@ -351,7 +351,7 @@ export default function outputUserRanks(
       ranks +
       ", dec:" +
       dec
-  );
+  ); */
 
   const floor = 0;
   const minLvl = 1;
@@ -392,7 +392,6 @@ export default function outputUserRanks(
   html += "</tr>";
 
   /* Generate user inputted IV rows for main output table */
-  console.log(aIV, " ", dIV, " ", sIV);
 
   if (aIV / 1 >= floor / 1 && dIV / 1 >= floor / 1 && sIV / 1 >= floor / 1) {
     /*console.log("i:"+i+" All 3 IVs > floor("+floor+"): "+aIV[i]+", "+dIV[i]+", "+sIV[i]+", aIV.length:"+aIV.length);*/
@@ -501,7 +500,7 @@ export default function outputUserRanks(
     }
   }
 
-  console.log(gmRhtml);
+  // console.log(gmRhtml);
 
   /*console.log("outputUserRanks: Finished loop with i:"+i+", actualRank:"+actualRank+" >= limit:"+limit);*/
   html += "</table>"; /*finish building the whole table*/

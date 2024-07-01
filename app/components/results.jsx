@@ -128,9 +128,9 @@ export default function Results() {
               </td>
               <td>{pokemonRank.cp}</td>
               <td>{pokemonRank.level}</td>
-              <td>{pokemonRank.battleAttack}</td>
-              <td>{pokemonRank.battleDefense}</td>
-              <td>{pokemonRank.battleStamina}</td>
+              <td>{parseFloat(pokemonRank.battleAttack).toFixed(2)}</td>
+              <td>{parseFloat(pokemonRank.battleDefense).toFixed(2)}</td>
+              <td>{parseInt(pokemonRank.battleStamina)}</td>
             </tr>
           )}
 

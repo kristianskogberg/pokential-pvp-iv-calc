@@ -31,7 +31,7 @@ var cpm = [
 ];
 let perfTiming = false;
 
-export default function calculate(
+export default function calculateAllRanks(
   baseatk,
   basedef,
   basesta,

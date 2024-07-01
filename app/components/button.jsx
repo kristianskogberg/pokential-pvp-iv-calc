@@ -1,22 +1,19 @@
 "use client";
-import React, { useeff } from "react";
-import calculate from "../utils/calculate";
-import { pokeListObj } from "../utils/pokeListObj";
-import outputUserRanks from "../utils/outputUserRanks";
+import React from "react";
+import calculateAllRanks from "../utils/calculateAllRanks";
 import useStore from "../store/store";
+import calculateSelectedPokemonRank from "../utils/calculateSelectedPokemonRank";
 
 export default function Button() {
   const attackIV = useStore((state) => state.attackIV);
   const defenseIV = useStore((state) => state.defenseIV);
   const staminaIV = useStore((state) => state.staminaIV);
-  const league = useStore((state) => state.league);
-  const leagueName = useStore((state) => state.leagueName);
-  const setRanks = useStore((state) => state.setRanks);
   const selectedPokemon = useStore((state) => state.selectedPokemon);
   const setGreatLeagueRanks = useStore((state) => state.setGreatLeagueRanks);
   const setUltraLeagueRanks = useStore((state) => state.setUltraLeagueRanks);
   const setMasterLeagueRanks = useStore((state) => state.setMasterLeagueRanks);
-  const setPokemonRank = useStore((state) => state.setPokemonRank);
+  const ivFloor = useStore((state) => state.ivFloor);
+  const maxLevel = useStore((state) => state.maxLevel);
   const setSelectedPokemonRankGreatLeague = useStore(
     (state) => state.setSelectedPokemonRankGreatLeague
   );
@@ -26,8 +23,6 @@ export default function Button() {
   const setSelectedPokemonRankMasterLeague = useStore(
     (state) => state.setSelectedPokemonRankMasterLeague
   );
-  const ivFloor = useStore((state) => state.ivFloor);
-  const maxLevel = useStore((state) => state.maxLevel);
 
   function handleClick() {
     if (Object.keys(selectedPokemon).length === 0) {
@@ -46,7 +41,7 @@ export default function Button() {
     const dec = 2; // how many decimals places to output
 
     // great league ranks
-    const greatLeagueRanks = calculate(
+    const greatLeagueRanks = calculateAllRanks(
       parseInt(monInfo[1]),
       parseInt(monInfo[2]),
       parseInt(monInfo[3]),
@@ -59,21 +54,18 @@ export default function Button() {
     );
     setGreatLeagueRanks(greatLeagueRanks);
 
-    const glRanks = outputUserRanks(
+    const glRank = calculateSelectedPokemonRank(
+      greatLeagueRanks,
       attackIV,
       defenseIV,
-      staminaIV,
-      shdw,
-      mon,
-      1500,
-      "Great League",
-      greatLeagueRanks,
-      dec
+      staminaIV
     );
-    setSelectedPokemonRankGreatLeague(glRanks);
+
+    console.log(glRank);
+    setSelectedPokemonRankGreatLeague(glRank);
 
     // ultra league ranks
-    const ultraLeagueRanks = calculate(
+    const ultraLeagueRanks = calculateAllRanks(
       parseInt(monInfo[1]),
       parseInt(monInfo[2]),
       parseInt(monInfo[3]),
@@ -86,21 +78,16 @@ export default function Button() {
     );
     setUltraLeagueRanks(ultraLeagueRanks);
 
-    const ulRanks = outputUserRanks(
+    const ulRank = calculateSelectedPokemonRank(
+      ultraLeagueRanks,
       attackIV,
       defenseIV,
-      staminaIV,
-      shdw,
-      mon,
-      2500,
-      "Ultra League",
-      ultraLeagueRanks,
-      dec
+      staminaIV
     );
-    setSelectedPokemonRankUltraLeague(ulRanks);
+    setSelectedPokemonRankUltraLeague(ulRank);
 
     // master league ranks
-    const masterLeagueRanks = calculate(
+    const masterLeagueRanks = calculateAllRanks(
       parseInt(monInfo[1]),
       parseInt(monInfo[2]),
       parseInt(monInfo[3]),
@@ -112,19 +99,14 @@ export default function Button() {
       mon
     );
     setMasterLeagueRanks(masterLeagueRanks);
-    var URL = window.location.href.split("?")[0];
-    const mlRanks = outputUserRanks(
+
+    const mlRank = calculateSelectedPokemonRank(
+      masterLeagueRanks,
       attackIV,
       defenseIV,
-      staminaIV,
-      shdw,
-      mon,
-      10000,
-      "Master League",
-      masterLeagueRanks,
-      dec
+      staminaIV
     );
-    setSelectedPokemonRankMasterLeague(mlRanks);
+    setSelectedPokemonRankMasterLeague(mlRank);
   }
 
   // hide this component until a pokemon has been selected
