@@ -94,7 +94,7 @@ export default function Recent() {
             <h2 className="text-sm font-medium text-gray-900 border-b border-gray-300 py-3 px-4">
               Recent
             </h2>
-            <div className="px-4 flex flex-col gap-4 w-full min-h-96">
+            <div className="px-4 flex flex-col gap-4 w-full min-h-[65vh]">
               {searchHistory.length === 0 ? (
                 <span className="text-sm text-gray-600 w-full justify-center flex py-2">
                   Your recent calculations will be displayed here
@@ -156,13 +156,14 @@ export default function Recent() {
             <div className="border-t border-gray-300 flex justify-end gap-4 items-center px-4 py-4">
               <button
                 className="text-xs font-medium uppercase text-gray-600 p-3"
+                disabled={searchHistory?.length === 0}
                 onClick={() => clearSearchHistory()}
               >
                 Clear History
               </button>
               <button
                 type="button"
-                className="cursor-pointer px-4 py-2 rounded-xl bg-green-400"
+                className="py-2 px-4 font-medium rounded-md border-2 border-slate-700"
                 onClick={handleModal}
               >
                 OK

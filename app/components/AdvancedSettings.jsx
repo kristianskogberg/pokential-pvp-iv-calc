@@ -83,7 +83,7 @@ export default function AdvancedSettings() {
             <div className="border-t border-gray-300 flex justify-end gap-4 items-center px-4 py-4">
               <button
                 type="button"
-                className="cursor-pointer px-4 py-2 rounded-xl bg-green-400"
+                className="py-2 px-4 font-medium rounded-md border-2 border-slate-700"
                 onClick={handleModal}
               >
                 OK

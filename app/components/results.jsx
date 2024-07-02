@@ -138,6 +138,9 @@ export default function Results() {
         </tbody>
       </table>
       <DisplayMoreResults />
+      <span className="w-full flex justify-center text-xs uppercase font-medium text-gray-400 py-2 mt-2">
+        Powered by pvpivs.com
+      </span>
     </div>
   );
 }
