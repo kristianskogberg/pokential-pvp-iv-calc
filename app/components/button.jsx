@@ -17,6 +17,7 @@ export default function Button() {
   const setUltraLeagueRanks = useStore((state) => state.setUltraLeagueRanks);
   const setMasterLeagueRanks = useStore((state) => state.setMasterLeagueRanks);
   const setSearchHistory = useStore((state) => state.setSearchHistory);
+  const searchHistory = useStore((state) => state.searchHistory);
 
   const setSelectedPokemonRankGreatLeague = useStore(
     (state) => state.setSelectedPokemonRankGreatLeague
@@ -34,6 +35,21 @@ export default function Button() {
     }
 
     const pokemon = selectedPokemon.name;
+
+    const lastCalc = searchHistory[0];
+
+    if (
+      lastCalc &&
+      lastCalc.ivFloor === ivFloor &&
+      lastCalc.maxLevel === maxLevel &&
+      lastCalc.IVs?.attack === attackIV &&
+      lastCalc.IVs?.defense === defenseIV &&
+      lastCalc.IVs?.stamina === staminaIV &&
+      lastCalc.pokemon === pokemon
+    ) {
+      // this calculation has already been performed, do not calcuate twice
+      return;
+    }
 
     // const monInfo = pokeListObj[mon].split(",");
     const monInfo = selectedPokemon.stats.split(",");
