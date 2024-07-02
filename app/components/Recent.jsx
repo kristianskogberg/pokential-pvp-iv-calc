@@ -13,6 +13,9 @@ export default function Recent() {
   const clearSearchHistory = useStore((state) => state.clearSearchHistory);
 
   const searchHistory = useStore((state) => state.searchHistory);
+  const setSearchHistoryOnLoad = useStore(
+    (state) => state.setSearchHistoryOnLoad
+  );
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -29,6 +32,20 @@ export default function Recent() {
   const handleModal = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    // load save history from localStorage
+    if (typeof window !== "undefined") {
+      const savedSearchHistory = JSON.parse(
+        localStorage.getItem("searchHistory")
+      );
+      //console.log(savedSearchHistory);
+
+      if (savedSearchHistory) {
+        setSearchHistoryOnLoad(savedSearchHistory);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -103,24 +120,30 @@ export default function Recent() {
                         >
                           <td className="py-1">{search.pokemon}</td>
                           <td>
-                            {search.IVs.attack}/{search.IVs.defense}/
-                            {search.IVs.stamina}
+                            {search.IVs?.attack}/{search.IVs?.defense}/
+                            {search.IVs?.stamina}
                           </td>
 
                           <td
-                            className={getPokemonRankClass(search.glRank.class)}
+                            className={getPokemonRankClass(
+                              search.glRank?.class
+                            )}
                           >
-                            {JSON.stringify(search.glRank.rank)}
+                            {JSON.stringify(search.glRank?.rank)}
                           </td>
                           <td
-                            className={getPokemonRankClass(search.ulRank.class)}
+                            className={getPokemonRankClass(
+                              search.ulRank?.class
+                            )}
                           >
-                            {JSON.stringify(search.ulRank.rank)}
+                            {JSON.stringify(search.ulRank?.rank)}
                           </td>
                           <td
-                            className={getPokemonRankClass(search.mlRank.class)}
+                            className={getPokemonRankClass(
+                              search.mlRank?.class
+                            )}
                           >
-                            {JSON.stringify(search.mlRank.rank)}
+                            {JSON.stringify(search.mlRank?.rank)}
                           </td>
                         </tr>
                       ))}
