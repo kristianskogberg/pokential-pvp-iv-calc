@@ -83,7 +83,6 @@ export default function Button() {
       staminaIV
     );
 
-    console.log(glRank);
     setSelectedPokemonRankGreatLeague(glRank);
 
     // ultra league ranks
@@ -131,8 +130,6 @@ export default function Button() {
       staminaIV
     );
     setSelectedPokemonRankMasterLeague(mlRank);
-
-    console.log(glRank);
 
     if (
       Object.keys(glRank).length === 0 &&

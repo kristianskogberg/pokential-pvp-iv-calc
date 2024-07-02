@@ -14,14 +14,13 @@ export default function SelectedPokemonCard() {
   return (
     <div className="flex flex-row  w-full items-center justify-start sm:justify-center px-2 ">
       <Image
-        // make this image smaller if screen size goes smaller so that it scales
         src={selectedPokemon.imageUrl}
         alt={selectedPokemon.name}
         width={200}
         height={200}
-        className="max-w-[200px] w-full p-4"
-        layout="responsive"
+        className="p-4 w-[175px] h-[175px] sx:w-[200px] sx:h-[200px]"
       />
+
       <div className="p-4 flex flex-col w-auto items-start justify-center">
         <span>
           <h5 className="text-sm font-medium text-gray-400">
