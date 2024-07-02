@@ -1,5 +1,6 @@
 export default function calculateSelectedPokemonRank(
   ranks,
+  selectedPokemon,
   attackIV,
   defenseIV,
   staminaIV
@@ -29,6 +30,7 @@ export default function calculateSelectedPokemonRank(
           pokemonRank.class = "rubbish";
         }
 
+        pokemonRank.name = selectedPokemon.name;
         pokemonRank.rank = actualRank;
 
         pokemonRank.level = ranks[keys[i]][j].L;

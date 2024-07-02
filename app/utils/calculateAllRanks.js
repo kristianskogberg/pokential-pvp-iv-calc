@@ -274,6 +274,6 @@ export default function calculateAllRanks(
 
   /* console.log("calculate output:"+JSON.stringify(sorted, null, 2)); */
 
-  console.log(sorted);
+  //console.log(sorted);
   return sorted;
 }

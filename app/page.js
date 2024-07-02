@@ -6,6 +6,7 @@ import Button from "./components/button";
 import Results from "./components/results";
 import Slider from "./components/slider";
 import SelectedPokemonCard from "./components/SelectedPokemonCard";
+import Recent from "./components/Recent";
 
 export default function Home() {
   return (
@@ -35,6 +36,7 @@ export default function Home() {
         />
         <div className="flex flex-row justify-center gap-8 flex-wrap">
           <AdvancedSettings />
+          <Recent />
           <Button />
         </div>
         <Results />

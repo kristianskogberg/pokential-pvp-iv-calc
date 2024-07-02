@@ -20,6 +20,7 @@ const useStore = create((set) => ({
   ivFloorName: "Wild Catch (0)",
   maxLevel: 50,
   activeTab: 1500,
+  searchHistory: JSON.parse(localStorage.getItem("searchHistory")) || [],
 
   setSelectedPokemon: (selectedPokemon) =>
     set({
@@ -50,6 +51,23 @@ const useStore = create((set) => ({
   setIVFloor: (ivFloor, ivFloorName) => set({ ivFloor, ivFloorName }),
   setMaxLevel: (maxLevel) => set({ maxLevel }),
   setActiveTab: (activeTab) => set({ activeTab }),
+  setSearchHistory: (newSearch) =>
+    set((state) => {
+      const updatedSearchHistory = [
+        newSearch,
+        ...state.searchHistory.slice(0, 49),
+      ];
+      localStorage.setItem(
+        "searchHistory",
+        JSON.stringify(updatedSearchHistory)
+      );
+      return { searchHistory: updatedSearchHistory };
+    }),
+  clearSearchHistory: () =>
+    set(() => {
+      localStorage.removeItem("searchHistory");
+      return { searchHistory: [] };
+    }),
 }));
 
 export default useStore;

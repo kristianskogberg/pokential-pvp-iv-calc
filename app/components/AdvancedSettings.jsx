@@ -4,6 +4,7 @@ import IVFloorDropdown from "./IVFloorDropdown";
 import useStore from "../store/store";
 import ToggleXLCandy from "./ToggleXLCandy";
 import ToggleBestBuddy from "./ToggleBestBuddy";
+import { IoSettingsOutline as SettingsIcon } from "react-icons/io5";
 
 export default function AdvancedSettings() {
   const [open, setOpen] = useState(false);
@@ -47,9 +48,10 @@ export default function AdvancedSettings() {
     <div>
       <button
         type="button"
-        className="py-2 px-4 font-medium rounded-md border-2 border-slate-700"
+        className="py-2 px-4 font-medium rounded-md border-2 border-slate-700 flex flex-row items-center justify-center gap-2"
         onClick={handleModal}
       >
+        <SettingsIcon size={20} />
         Settings
       </button>
       {open && (
