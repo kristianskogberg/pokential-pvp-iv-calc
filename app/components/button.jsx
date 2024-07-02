@@ -118,6 +118,15 @@ export default function Button() {
 
     console.log(glRank);
 
+    if (
+      Object.keys(glRank).length === 0 &&
+      Object.keys(ulRank).length === 0 &&
+      Object.keys(mlRank).length === 0
+    ) {
+      // set iv floor is too high compared to selected IVs
+      return;
+    }
+
     setSearchHistory({
       pokemon: pokemon,
       IVs: {

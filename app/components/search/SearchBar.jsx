@@ -44,7 +44,7 @@ const SearchBar = () => {
           <input
             className="h-full pl-0 w-full outline-none  placeholder-gray-500 text-black pr-2 "
             type="text"
-            autoFocus={true}
+            autoFocus={false}
             id="search-input"
             value={query}
             placeholder="Search for a Pokémon..."
