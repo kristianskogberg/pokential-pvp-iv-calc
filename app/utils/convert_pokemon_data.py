@@ -1,4 +1,5 @@
 import json
+import requests
 
 pokeListObj = {
     "Bulbasaur": "1b,118,111,128,Ivysaur,Venusaur,Mega_Venusaur",
@@ -1169,6 +1170,9 @@ pokeListObj = {
     "Iron_Leaves":"1010b,259,213,207"
 }
 
+with open('pokemon_urls.json', 'r') as file:
+    pokemon_urls = json.load(file)
+
 def keep_only_numbers(input_string):
       # Filter and keep only digits, then convert each digit to an integer
     numbers = [int(char) for char in input_string if char.isdigit()]
@@ -1194,7 +1198,7 @@ def convert_to_json(pokeListObj):
             "evolutions": data_split[4:],
             # Add dummy values for imageUrl and type, modify as needed
             "imageUrl": f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{keep_only_numbers(data_split[0])}.png",
-            "type": ["Grass", "Poison"]
+            "types": []
         }
         
         # Append the dictionary to the list
@@ -1205,6 +1209,33 @@ def convert_to_json(pokeListObj):
 # Convert the data
 poke_list_json = convert_to_json(pokeListObj)
 
+
+# Function to get additional data from the API
+def get_additional_data(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return None
+
+# Loop over the list and search for Pokémon in the pokemon_urls list
+for poke in poke_list_json:
+    # Replace symbols in poke["name"]
+    poke_name = poke["name"].replace("-", " ").replace("_", " ")
+    for result in pokemon_urls["results"]:
+        # Replace symbols in result["name"]
+        result_name = result["name"].replace("-", " ").replace("_", " ")
+        if result_name in poke_name:
+            additional_data = get_additional_data(result["url"])
+            if additional_data:
+                print(additional_data.get("name"))
+                # Extract types and convert to uppercase
+                types = additional_data.get("types", [])
+                poke["types"] = [type_info["type"]["name"].upper() for type_info in types]
+                
+                # Delay between API calls
+                time.sleep(0.5)
+
 # Convert the list to a JSON string
 poke_list_json_str = json.dumps(poke_list_json, indent=4)
 
@@ -1212,5 +1243,3 @@ poke_list_json_str = json.dumps(poke_list_json, indent=4)
 with open('poke_list.json', 'w') as json_file:
     json_file.write(poke_list_json_str)
 
-# Print the JSON string (for verification, you can comment this out)
-print(poke_list_json_str)

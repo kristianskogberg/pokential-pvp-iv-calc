@@ -297,7 +297,7 @@
     "defense": 70,
     "stamina": 102,
     "evolutions": ["Raticate_Alola"],
-    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10091.png",
     "type": ["Grass", "Poison"]
   },
   {
@@ -319,7 +319,7 @@
     "defense": 154,
     "stamina": 181,
     "evolutions": ["Rattata_Alola"],
-    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10092.png",
     "type": ["Grass", "Poison"]
   },
   {
@@ -396,7 +396,7 @@
     "defense": 154,
     "stamina": 155,
     "evolutions": [],
-    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10100.png",
     "type": ["Grass", "Poison"]
   },
   {
@@ -418,7 +418,7 @@
     "defense": 129,
     "stamina": 137,
     "evolutions": ["Sandslash_Alola"],
-    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10101.png",
     "type": ["Grass", "Poison"]
   },
   {
@@ -440,7 +440,7 @@
     "defense": 195,
     "stamina": 181,
     "evolutions": ["Sandshrew_Alola"],
-    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10102.png",
     "type": ["Grass", "Poison"]
   },
   {
@@ -550,7 +550,7 @@
     "defense": 109,
     "stamina": 116,
     "evolutions": ["Ninetales_Alola"],
-    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10103.png",
     "type": ["Grass", "Poison"]
   },
   {
@@ -572,7 +572,7 @@
     "defense": 193,
     "stamina": 177,
     "evolutions": ["Vulpix_Alola"],
-    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10104.png",
     "type": ["Grass", "Poison"]
   },
   {
