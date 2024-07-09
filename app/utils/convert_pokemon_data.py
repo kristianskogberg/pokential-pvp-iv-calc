@@ -1187,9 +1187,11 @@ def convert_to_json(pokeListObj):
         # Split the comma-separated values
         data_split = data.split(',')
         
+        processed_name = name.replace("-", " ").replace("_", " ").replace("galarian", "galar").replace("hisuian", "hisui")
+
         # Create the dictionary for each Pokémon
         poke_dict = {
-            "name": name,
+            "name": processed_name,
             "stats": data,
             "id": keep_only_numbers(data_split[0]),
             "attack": int(data_split[1]),
