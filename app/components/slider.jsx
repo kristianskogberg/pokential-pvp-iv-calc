@@ -36,6 +36,8 @@ export default function Slider({ label, id, setter, value }) {
       <input
         className="w-12"
         type="number"
+        inputMode="numeric"
+        pattern="[0-9]"
         value={ivValue}
         min={MIN_IV}
         step={1}
